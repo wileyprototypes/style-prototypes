@@ -1,0 +1,226 @@
+:root {
+  --font: Space Grotesk;
+  --color-bg: white;
+  --color-fg: black;
+  --color-medium: #999;
+  --color-dark: #666;
+  --color-accent: purple;
+  --color-accent-2: #EDB6D3;
+  --count: 100px;
+  --logo-small: 36px;
+  --pdf: 100vh;
+  --nav: 150px;
+  --container: 700px;
+  --transition: 300ms;
+  --lang: 50px;
+  --pdf-ratio: 0.3863636364;
+  --delay: 300ms;
+  --gap: 15px;
+  --CTA-size: 130px;
+  --gap-2: calc(var(--gap) * 2);
+  --gap-3: calc(var(--gap) * 3);
+  --gap-4: calc(var(--gap) * 4);
+  --gap-5: calc(var(--gap) * 5);
+  --gap-6: calc(var(--gap) * 6);
+  --gap-7: calc(var(--gap) * 7);
+  --gap-8: calc(var(--gap) * 8);
+  --gap-9: calc(var(--gap) * 9);
+  --gap-10: calc(var(--gap) * 10);
+  --gap-half: calc(var(--gap) / 2);
+  --gap-quart: calc(var(--gap) / 4);
+  --bg-image: url("https://praxis.nyc/images/dot-bg.svg");
+}
+:root.dark-mode {
+  --color-bg: #281831;
+  --color-fg: white;
+  --color-medium: white;
+  --color-dark: #999;
+  --color-accent: #EDB6D3;
+  --color-accent-2: purple;
+  --bg-image: url("../images/dot-bg-dark-mode.svg");
+}
+:root.dark-mode section.session .counter:before {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+:root.dark-mode .cover {
+  display: none;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url("fonts/OpenSans-Regular.eot");
+  src: url("fonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"), url("fonts/OpenSans-Regular.woff") format("woff"), url("fonts/OpenSans-Regular.ttf") format("truetype"), url("fonts/OpenSans-Regular.svg#OpenSans") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  text-transform: transform;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: OpenSans;
+    src: url("fonts/OpenSans-Regular.svg#OpenSans") format("svg");
+  }
+}
+@font-face {
+  font-family: OpenSans;
+  src: url("fonts/OpenSans-SemiBold.eot");
+  src: url("fonts/OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"), url("fonts/OpenSans-SemiBold.woff") format("woff"), url("fonts/OpenSans-SemiBold.ttf") format("truetype"), url("fonts/OpenSans-SemiBold.svg#OpenSans") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  text-transform: transform;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: OpenSans;
+    src: url("fonts/OpenSans-SemiBold.svg#OpenSans") format("svg");
+  }
+}
+.container {
+  max-width: 1140px;
+  width: 100%;
+  margin: 30px auto;
+}
+
+body {
+  font-family: OpenSans;
+  font-size: 14px;
+  text-align: left;
+  line-height: 125%;
+}
+
+h2 {
+  font-size: 30px;
+  color: #005274;
+  margin-top: 60px;
+  font-weight: normal;
+}
+
+.background, header.header, .fixed {
+  displaY: none;
+}
+
+a {
+  color: #005274;
+}
+a:hover {
+  color: #2B7999;
+}
+
+table {
+  margin-bottom: 60px;
+}
+
+tr:odd {
+  background-color: #eee;
+}
+
+td, th {
+  vertical-align: top;
+  padding-top: 15px;
+  padding-right: 30px;
+  word-break: break-word;
+}
+td.filename, th.filename {
+  word-break: break-all;
+  max-width: 350px;
+}
+td.size, td.title, th.size, th.title {
+  word-break: keep-all;
+}
+td.roles, th.roles {
+  max-width: 250px;
+}
+
+sup {
+  white-space: nowrap;
+}
+
+.orcid {
+  background-image: url(orcidid.svg);
+  background-repeat: no-repeat;
+  padding-left: 31px;
+  display: block;
+  word-break: keep-all;
+}
+
+div.name {
+  font-weight: bold;
+  display: inline-block;
+}
+
+@media (min-width: 600px) {
+  table.smaller {
+    width: 70%;
+  }
+  table.smallest {
+    width: 50%;
+  }
+}
+@media (max-width: 600px) {
+  table {
+    width: 100%;
+  }
+
+  tr.header {
+    display: none;
+  }
+
+  div.name {
+    font-weight: normal;
+  }
+
+  td {
+    display: block;
+    border: solid 1px #ccc;
+    padding: 15px;
+    background-color: #fff;
+  }
+  td:not(:first-of-type) {
+    border-top: none;
+    padding-top: 10px;
+  }
+  td:not(:last-of-type) {
+    border-bottom: none;
+    padding-bottom: 0px;
+  }
+  td:last-of-type {
+    margin-bottom: -3px;
+  }
+  td:before {
+    font-weight: bold;
+    display: block;
+  }
+  td.title:before {
+    content: "Title";
+  }
+  td.name:before {
+    content: "Name";
+  }
+  td.email:before {
+    content: "Email";
+  }
+  td.country:before {
+    content: "Country";
+  }
+  td.roles:before {
+    content: "Roles";
+  }
+  td.filename:before {
+    content: "Name";
+  }
+  td.designation:before {
+    content: "Type of File";
+  }
+  td.size:before {
+    content: "Size";
+  }
+  td.designation:before {
+    content: "Type of File";
+  }
+  td.size:before {
+    content: "Size";
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

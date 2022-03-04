@@ -1,0 +1,174 @@
+@import "functions.scss";
+@import "mixins.scss";
+
+
+@include font-face(OpenSans, 
+	$path: "fonts/", 
+	$file: OpenSans-Regular, 
+	$weight: normal, 
+	$style: normal, 
+	$stretch: normal, 
+	$transform: normal
+	);
+@include font-face(OpenSans, 
+	$path: "fonts/", 
+	$file: OpenSans-SemiBold, 
+	$weight: bold, 
+	$style: normal, 
+	$stretch: normal, 
+	$transform: normal
+	);
+
+
+.container {
+	max-width: 1140px;
+	width: 100%;
+	margin: 30px auto;
+}
+
+body {
+	font-family: OpenSans;
+	font-size: 14px;
+	text-align: left;
+	line-height: 125%;
+}
+
+h2 {
+	font-size: 30px;
+	color: #005274;
+	margin-top: 60px;
+	font-weight: normal;
+}
+.background, header.header, .fixed {
+	displaY: none;
+}
+a {
+	color: #005274;
+	&:hover {
+		color: #2B7999;
+	}
+}
+
+table {
+	margin-bottom: 60px;
+}
+tr:odd {
+	background-color: #eee;
+}
+
+td, th {
+	vertical-align: top;
+	padding-top: 15px;
+	padding-right: 30px;
+	word-break: break-word;
+	&.filename {
+		word-break: break-all;
+		max-width: 350px;
+	}
+	&.size, &.title {
+		word-break: keep-all;
+	}
+	&.roles {
+		max-width: 250px;
+	}
+
+
+}
+sup {
+	white-space: nowrap;
+}
+.orcid {
+	background-image: url(orcidid.svg);
+	background-repeat: no-repeat;
+	padding-left: 31px;
+	display: block;
+	word-break: keep-all;
+}
+div {
+	&.name {
+		font-weight: bold;
+		display: inline-block;
+	}
+
+}
+
+@media (min-width: 600px) { 
+	table {
+		&.smaller {
+			width: 70%;
+		}
+		&.smallest {
+			width: 50%;
+		}
+	}
+
+}
+
+
+@media (max-width: 600px) { 
+	table {
+		width: 100%;
+	}
+	tr.header {
+		display: none;
+	}
+	div.name {
+		font-weight: normal;
+	}
+	td {
+		display: block;
+		border: solid 1px #ccc;
+		padding: 15px;
+		background-color: #fff;
+		
+		&:not(:first-of-type) {
+			border-top: none;
+			padding-top: 10px;
+		}
+		&:not(:last-of-type) {
+			border-bottom: none;
+			padding-bottom: 0px;
+		}
+		&:last-of-type {
+
+			margin-bottom: -3px;
+		}
+
+		&:before {
+			font-weight: bold;
+			display: block;
+		}
+		&.title:before {
+			content: "Title";
+		}
+		&.name:before {
+			content: "Name";
+		}
+		&.email:before {
+			content: "Email";
+		}
+		&.country:before {
+			content: "Country";
+		}
+		&.roles:before {
+			content: "Roles";
+		}
+		&.filename:before {
+			content: "Name";
+		}
+		&.designation:before {
+			content: "Type of File";
+		}
+		&.size:before {
+			content: "Size";
+		}
+		&.designation:before {
+			content: "Type of File";
+		}
+		&.size:before {
+			content: "Size";
+		}
+	}
+}
+
+
