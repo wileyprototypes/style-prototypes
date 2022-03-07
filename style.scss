@@ -1,6 +1,42 @@
 @import "functions.scss";
 @import "mixins.scss";
 
+:root {
+  --step-1x: 15px;
+  --step-2x: 30px;
+}
+
+// table findings (translate to the system you use)
+
+td, th {
+	vertical-align: top;
+	padding-top: var(--step-1x);
+	padding-right: var(--step-2x);
+	word-break: break-word;
+	&.filename {
+		word-break: break-all;
+		max-width: 350px;
+	}
+	&.size, &.title {
+		word-break: keep-all;
+	}
+	&.roles {
+		max-width: 250px;
+	}
+}
+sup {
+	white-space: nowrap;
+}
+.orcid {
+	background-image: url(orcidid.svg);
+	background-repeat: no-repeat;
+	padding-left: 31px;
+	display: block;
+	word-break: keep-all;
+}
+
+// cosmetic CSS rules
+
 
 @include font-face(OpenSans, 
 	$path: "fonts/", 
@@ -23,7 +59,7 @@
 .container {
 	max-width: 1140px;
 	width: 100%;
-	margin: 30px auto;
+	margin: var(--step-2x) auto;
 }
 
 body {
@@ -34,7 +70,7 @@ body {
 }
 
 h2 {
-	font-size: 30px;
+	font-size: var(--step-2x);
 	color: #005274;
 	margin-top: 60px;
 	font-weight: normal;
@@ -56,41 +92,15 @@ tr:odd {
 	background-color: #eee;
 }
 
-td, th {
-	vertical-align: top;
-	padding-top: 15px;
-	padding-right: 30px;
-	word-break: break-word;
-	&.filename {
-		word-break: break-all;
-		max-width: 350px;
-	}
-	&.size, &.title {
-		word-break: keep-all;
-	}
-	&.roles {
-		max-width: 250px;
-	}
 
-
-}
-sup {
-	white-space: nowrap;
-}
-.orcid {
-	background-image: url(orcidid.svg);
-	background-repeat: no-repeat;
-	padding-left: 31px;
-	display: block;
-	word-break: keep-all;
-}
 div {
 	&.name {
 		font-weight: bold;
 		display: inline-block;
 	}
-
 }
+
+// breakpoints, disregard for now
 
 @media (min-width: 600px) { 
 	table {
@@ -103,7 +113,6 @@ div {
 	}
 
 }
-
 
 @media (max-width: 600px) { 
 	table {
@@ -118,7 +127,7 @@ div {
 	td {
 		display: block;
 		border: solid 1px #ccc;
-		padding: 15px;
+		padding: var(--step-1x);
 		background-color: #fff;
 		
 		&:not(:first-of-type) {

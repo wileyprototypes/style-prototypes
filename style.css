@@ -46,6 +46,40 @@
   display: none;
 }
 
+:root {
+  --step-1x: 15px;
+  --step-2x: 30px;
+}
+
+td, th {
+  vertical-align: top;
+  padding-top: var(--step-1x);
+  padding-right: var(--step-2x);
+  word-break: break-word;
+}
+td.filename, th.filename {
+  word-break: break-all;
+  max-width: 350px;
+}
+td.size, td.title, th.size, th.title {
+  word-break: keep-all;
+}
+td.roles, th.roles {
+  max-width: 250px;
+}
+
+sup {
+  white-space: nowrap;
+}
+
+.orcid {
+  background-image: url(orcidid.svg);
+  background-repeat: no-repeat;
+  padding-left: 31px;
+  display: block;
+  word-break: keep-all;
+}
+
 @font-face {
   font-family: OpenSans;
   src: url("fonts/OpenSans-Regular.eot");
@@ -79,7 +113,7 @@
 .container {
   max-width: 1140px;
   width: 100%;
-  margin: 30px auto;
+  margin: var(--step-2x) auto;
 }
 
 body {
@@ -90,7 +124,7 @@ body {
 }
 
 h2 {
-  font-size: 30px;
+  font-size: var(--step-2x);
   color: #005274;
   margin-top: 60px;
   font-weight: normal;
@@ -113,35 +147,6 @@ table {
 
 tr:odd {
   background-color: #eee;
-}
-
-td, th {
-  vertical-align: top;
-  padding-top: 15px;
-  padding-right: 30px;
-  word-break: break-word;
-}
-td.filename, th.filename {
-  word-break: break-all;
-  max-width: 350px;
-}
-td.size, td.title, th.size, th.title {
-  word-break: keep-all;
-}
-td.roles, th.roles {
-  max-width: 250px;
-}
-
-sup {
-  white-space: nowrap;
-}
-
-.orcid {
-  background-image: url(orcidid.svg);
-  background-repeat: no-repeat;
-  padding-left: 31px;
-  display: block;
-  word-break: keep-all;
 }
 
 div.name {
@@ -173,7 +178,7 @@ div.name {
   td {
     display: block;
     border: solid 1px #ccc;
-    padding: 15px;
+    padding: var(--step-1x);
     background-color: #fff;
   }
   td:not(:first-of-type) {
