@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+	<title>Sticky Note Mockup</title>
+	<style>
+		body{
+			padding:40px;
+			font-family:'Open Sans', sans-serif;
+		}
+		.sticky{
+			padding:40px;
+			font-size:24px;
+			text-align:center;
+			width:80px;
+			height:80px;
+			float:left;
+			margin:20px;
+		}
+		.colorcard{
+			float:left;
+			margin:20px;
+			width:40px;
+			height:20px;
+		}
+		.page-section{
+			overflow:auto;
+			margin-bottom:40px;
+		}
+		.color-range{
+		  position: relative;
+		  z-index: 1;
+		  appearance: none;
+		  border-radius: 0.5em;
+		  background-color: rgba(0,0,0,0.1);
+		  height: 0.5em;
+		  width: 66%;
+		  display: block;
+		  outline: none;
+		  margin: 4rem auto;
+		  transition: color 0.05s linear;
+		  background: linear-gradient(to right, rgb(255,0,0), rgb(255,255,0), rgb(0,255,0),rgb(0,255,255),rgb(0,0,255),rgb(255,0,255),rgb(255,0,0));
+		 }
+		 .color-range:focus{
+			outline: none;
+		 }
+		 .color-range:active, .color-range:hover:active{
+			cursor:grabbing;
+		 }
+		 #preview-values div span, .color-contrast-value{
+			font-weight:700;
+		 }
+		 #sticky-preview{
+			margin-top:10px;
+			padding:10px;
+			border: 1px solid #aaa;
+			width:200px;
+			height:200px;
+			position:relative;
+		}
+		#sticky-preview .sticky-heading{
+			font-weight:700;
+			border-bottom:1px solid #aaa;
+			font-size:16px;
+			margin-bottom:0.5em; 
+			padding-bottom:0.5em;
+		}
+		#sticky-preview .sticky-body{
+			font-size:14px;
+		}
+		#sticky-preview .sticky-visibility{
+			font-size:14px;
+			position: absolute;
+			bottom:14px;
+		}
+		  
+	</style>
+
+</head>
+<body>
+<div class="page-section">
+	<h2>Examples of color offset and recommended default palette:</h2>	
+	<div class="sticky"style="background:hsl(150, 70%, 90%); color:hsl(150, 100%, 20%);">Inner text</div>
+	<div class="sticky"style="background:hsl(170, 70%, 90%); color:hsl(170, 100%, 20%);">Inner text</div>
+	<div class="sticky"style="background:hsl(210, 70%, 90%); color:hsl(210, 100%, 20%);">Inner text</div>
+	<div class="sticky"style="background:hsl(240, 70%, 90%); color:hsl(240, 100%, 20%);">Inner text</div>
+	<div class="sticky"style="background:hsl(310, 70%, 90%); color:hsl(310, 100%, 20%);">Inner text</div>
+	<div class="sticky"style="background:hsl(350, 70%, 90%); color:hsl(350, 100%, 20%);">Inner text</div>
+	<div class="sticky"style="background:hsl(20, 70%, 90%); color:hsl(20, 100%, 20%);">Inner text</div>
+	<div class="sticky"style="background:hsl(50, 70%, 90%); color:hsl(50, 100%, 20%);">Inner text</div>
+	<div class="sticky"style="background:hsl(75, 70%, 90%); color:hsl(80, 100%, 20%);">Inner text</div>
+</div>
+<div class="page-section">
+	<h2>Example color cards in config tool:</h2>
+	<div class="colorcard" style="background:hsl(150, 75%, 50%);"></div>
+	<div class="colorcard" style="background:hsl(170, 75%, 50%);"></div>
+	<div class="colorcard" style="background:hsl(210, 75%, 50%);"></div>
+	<div class="colorcard" style="background:hsl(240, 75%, 50%);"></div>
+	<div class="colorcard" style="background:hsl(270, 75%, 50%);"></div>
+	<div class="colorcard" style="background:hsl(350, 75%, 50%);"></div>
+	<div class="colorcard" style="background:hsl(20, 75%, 50%);"></div>
+	<div class="colorcard" style="background:hsl(50, 75%, 50%);"></div>
+	<div class="colorcard" style="background:hsl(75, 75%, 50%);"></div>
+</div>
+
+<div class="page-section">
+	<h2>Selecting a new color (hue):</h2>
+	
+	<input class="color-range" type="range" min="0" max="100" value="75" title="Select a hue">
+	<div id="preview-values">
+		<div id="value1">Hue: <span></span></div>
+		<div id="value2">HSL, sticky background: <span></span></div>
+		<div id="value3">HSL, sticky foreground: <span></span></div>
+		<div id="value4">HSL, color card: <span></span></div>
+	</div>
+	<div id="sticky-preview" style="background:#ccc;">
+		<div class="sticky-heading">Potential Authorship Conflict</div>
+		<div class="sticky-body">Paper Authored by EJPDEMO Demo Journal Associate Editor Janette Chalifour</div>
+		<div class="sticky-visibility"><span>Visible to:</span> Staff, All Editors</div>
+	</div>
+</div>
+
+
+
+	<script>
+		let colorRange = document.querySelector('.color-range');
+		let sticky = document.querySelector('#sticky-preview');
+		
+		//var colorChoice = document.getElementById("color-choice")
+
+
+
+		colorRange.addEventListener('input', function(e) {
+		  let hue = ((this.value/100)*360).toFixed(0);
+		  let bghsl = "hsl(" + hue + ",69%, 90%)";
+		  let fghsl = "hsl(" + hue + ",100%, 20%)";
+		  let cardhsl = "hsl(" + hue + ",75%, 50%)";
+		  
+		  //colorChoice.style.color = hsl
+		  //colorChoice.innerHTML = hsl
+		  sticky.style.background = bghsl;
+		  sticky.style.color = fghsl;
+		  document.querySelector('#value1 span').innerText=hue;
+		  document.querySelector('#value2 span').innerText=bghsl;
+		  document.querySelector('#value3 span').innerText=fghsl;
+		  document.querySelector('#sticky-preview .sticky-heading').style.borderColor=fghsl;
+		  document.querySelector('#sticky-preview').style.borderColor=cardhsl;
+		  document.querySelector('#value4 span').innerText=cardhsl;
+		  	  
+		});
+		
+		var event = new Event('input');
+		colorRange.dispatchEvent(event);
+	</script>
+	
+</body>
+</html>
