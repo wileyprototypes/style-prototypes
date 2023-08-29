@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+    <title>REX Color Config</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    <script src="./scripts/relative-luminance.js"></script>
+</head>
+
+
+<div class="color-pickers">
+	<label class="picker-label">
+		Button color<br />
+		<input class="color-picker basic" type="text" value="#123d80" id="button-color" name="button-color"/>
+		<input class="second-color" type="hidden" value="#FFFFFF" id="second-color" name="second-color"/>
+	</label>
+	<span class="contrast-checker">
+		Preview: <br />
+		<button id="contrast-dummy-button">Continue </button>
+	</span>
+	<span class="contrast-checker">
+		WCAG Color Contrast: <br />
+		<span class="color-contrast"></span>
+		<input id="wcagcontrast" name="wcagcontrast" value="notset"/>
+		
+		<br />
+		<br />
+		Level AA:
+		<span class="color-contrast-icon color-contrast-icon-aa"></span>
+		
+
+		<br />
+		Level AAA:
+		<span class="color-contrast-icon color-contrast-icon-aaa"></span>
+
+		<br />
+		Is blue:
+		<span class="color-contrast-icon color-contrast-icon-blue"></span>
+
+	
+	</span>
+	
+</div>
+	<script>
+		$('.color-picker').spectrum({
+			type: "component",
+			preferredFormat: "hex",
+			showInput: true,
+			showAlpha: false,
+			showSelectionPalette: false,
+			allowEmpty:false,
+			localStorageKey: "spectrum.homepage",
+			change:function(color){
+				updateColors();
+			},
+			move:function(color){
+				updateColors(color);
+			},
+			palette:[
+				["#001C58","#123d80","#335198"],
+				["#00444f","#005462","#007285"],
+				["#002657","#00357e","#0044a1"],
+				["#001d70","#00299d","#0035cc"],
+				["#000095","#0000c4","#0000ff"],
+				["#190195","#2200cd","#2900f7"]
+			]
+		});
+	   
+		function updateColors(color){
+			//$('.preview-wrap').css('background-color',$("#primary-background").val());
+			//$('.preview-menu').css('background-color',$("#nav-background").val());
+			//$('.preview-menu a').css('color',$("#nav-foreground").val());
+			$("#contrast-dummy-button").css("background-color", $("#button-color").val());
+			calcContrast(color);
+			calcIfBlue(color);
+		}
+	  
+		function calcContrast(color){
+			contrast = hex($("#second-color").val(),$("#button-color").val())
+			$(".color-contrast").text(contrast.toFixed(2));
+			if(contrast>=7){
+				$(".color-contrast-icon-aaa").text('\u2714');
+				$(".color-contrast-icon-aaa").removeClass('bad').addClass('good');
+				$(".color-contrast-icon-aa").text('\u2714');
+				$(".color-contrast-icon-aa").removeClass('bad').addClass('good');
+			}
+			else if(contrast>=4.5){
+				$(".color-contrast-icon-aaa").text('X');
+				$(".color-contrast-icon-aaa").removeClass('good').addClass('bad');
+				$(".color-contrast-icon-aa").text('\u2714');
+				$(".color-contrast-icon-aa").removeClass('bad').addClass('good');
+			}
+			else{
+				$(".color-contrast-icon-aaa").text('X');
+				$(".color-contrast-icon-aaa").removeClass('good').addClass('bad');
+				$(".color-contrast-icon-aa").text('X');
+				$(".color-contrast-icon-aa").removeClass('good').addClass('bad');
+			}
+			$('#wcagcontrast').attr("value",contrast.toFixed(2));
+		}
+
+		function calcIfBlue(color){
+			hsl = $("#button-color").spectrum("get").toHsl();
+			if(hsl.h>175 && hsl.h <250 && hsl.s>0.33 && hsl.l>0.15){
+				$(".color-contrast-icon-blue").text('\u2714');
+				$(".color-contrast-icon-blue").removeClass('bad').addClass('good');
+			}
+			else{
+				$(".color-contrast-icon-blue").text('X');
+				$(".color-contrast-icon-blue").removeClass('good').addClass('bad');
+			}
+		}
+
+		updateColors();
+	
+	</script>
+</body>
+</html>

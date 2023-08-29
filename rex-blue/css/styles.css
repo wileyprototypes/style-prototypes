@@ -1,0 +1,125 @@
+body{
+    margin:0;
+    padding:50px;
+    font-family:'Open Sans', Arial, Helvetica, sans-serif;
+}
+input{
+box-shadow: none;
+color: inherit;
+border: 1px solid #cccccc;
+border-radius: 4px;
+padding: .3em .8em;
+font-size: inherit;
+font-family: inherit;
+margin-bottom: 10px;
+margin-right: 10px;
+background-color: white;
+}
+
+.left-50{
+    width:48%;
+    margin-right:1%;
+    float:left
+}
+.right-50{
+    width:48%;
+    margin-left:1%;
+    float:right;
+}
+.backlink{
+    text-decoration:none;
+    color:rgb(0, 96, 206);
+}
+.current-info, .actions{
+    background:#eee;
+    padding:40px;
+    color:#444;
+}
+.preview-wrap{
+    max-width:1140px;
+    margin:0;
+    padding:0 30px;
+    background:#fff;
+}
+.inner-wrap{
+    max-width:1200px;
+    margin:20px auto;
+    overflow:auto;
+}
+.preview-logo-wrap{
+    
+}
+.preview-logo-wrap img{
+    height:80px;
+    width:auto;
+    max-width: 95%;
+    margin:30px 0;
+}
+.preview-menu{
+    background:#000;
+    padding:10px 30px;
+}
+.preview-menu a{
+    text-decoration:none;
+    font-weight:600;
+    color:#fff;
+    margin-right:20px;
+}
+.color-pickers{
+    padding:20px 0;
+    overflow:auto;
+}
+.picker-label, .contrast-checker{
+    display:block;
+    width:300px;
+    float:left;
+    font-weight:600;
+    font-size:14px;
+    line-height:1.5em;
+}
+.color-contrast{
+    font-size:18px;
+}
+.color-contrast-icon{
+    size:18px;
+    padding:5px;
+    font-size:18px;
+}
+.color-contrast-icon.bad, .color-contrast-icon.bad{
+    color:rgb(172, 0, 0);
+}
+.color-contrast-icon.good, .color-contrast-icon.good{
+    color:rgb(0, 82, 0);
+}
+#wcagcontrast{
+    display:none;
+}
+.actions{
+    text-align:right;
+}
+input[type='submit']{
+    background:rgb(0, 88, 22);
+    color:#fff;
+    font-size:18px;
+    font-weight:600;
+    border:none;
+    cursor:pointer;
+}
+input[type='submit']:hover{
+    background:rgb(0, 122, 31);
+}
+
+#contrast-dummy-button{
+    box-shadow:0 4px 0 #1c1d1e0d;
+    border:1px solid transparent;
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    align-items:center;
+    box-sizing:border-box;
+    display:inline-flex;
+    flex-flow: row nowrap;
+    justify-content:center;
+    min-height:40px;
+    padding:15px 30px;
+}
