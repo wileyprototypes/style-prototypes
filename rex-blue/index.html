@@ -21,6 +21,9 @@
 	<span class="contrast-checker">
 		Preview: <br />
 		<button id="contrast-dummy-button">Continue </button>
+		<br/>
+		<br/>
+		Here is an example of an <a href="#" id="contrast-dummy-link">inline text link</a> shown inside of paragraph text.
 	</span>
 	<span class="contrast-checker">
 		WCAG Color Contrast: <br />
@@ -53,7 +56,6 @@
 			showAlpha: false,
 			showSelectionPalette: false,
 			allowEmpty:false,
-			localStorageKey: "spectrum.homepage",
 			change:function(color){
 				updateColors();
 			},
@@ -61,12 +63,12 @@
 				updateColors(color);
 			},
 			palette:[
-				["#001C58","#123d80","#335198"],
-				["#00444f","#005462","#007285"],
-				["#002657","#00357e","#0044a1"],
-				["#001d70","#00299d","#0035cc"],
-				["#000095","#0000c4","#0000ff"],
-				["#190195","#2200cd","#2900f7"]
+				["#113772","#123d80","#1b58b6","#1f69dd"],
+				["#00444f","#005462","#007285","#008196"],
+				["#002657","#00357e","#0044a1","#0059d3"],
+				["#001d70","#00299d","#0035cc","#0042fc"],
+				["#000095","#0000c4","#0000ff","#2b2bff"],
+				["#190195","#2200cd","#2900f7","#411bff"]
 			]
 		});
 	   
@@ -75,6 +77,8 @@
 			//$('.preview-menu').css('background-color',$("#nav-background").val());
 			//$('.preview-menu a').css('color',$("#nav-foreground").val());
 			$("#contrast-dummy-button").css("background-color", $("#button-color").val());
+			$("#contrast-dummy-link").css("color", $("#button-color").val());
+			
 			calcContrast(color);
 			calcIfBlue(color);
 		}
