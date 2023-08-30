@@ -18,12 +18,13 @@
 		<input class="color-picker basic" type="text" value="#123d80" id="button-color" name="button-color"/>
 		<input class="second-color" type="hidden" value="#FFFFFF" id="second-color" name="second-color"/>
 	</label>
-	<span class="contrast-checker">
+	<span class="blue-checker">
 		Preview: <br />
-		<button id="contrast-dummy-button">Continue </button>
+		<button id="contrast-dummy-button-solid">Primary Button</button>
 		<br/>
+		<button id="contrast-dummy-button-outline">Secondary Button</button>
 		<br/>
-		Here is an example of an <a href="#" id="contrast-dummy-link">inline text link</a> shown inside of paragraph text.
+		<p>Here is an example of an <a href="#" id="contrast-dummy-link">inline text link</a> shown inside of paragraph text.</p>
 	</span>
 	<span class="contrast-checker">
 		WCAG Color Contrast: <br />
@@ -76,7 +77,8 @@
 			//$('.preview-wrap').css('background-color',$("#primary-background").val());
 			//$('.preview-menu').css('background-color',$("#nav-background").val());
 			//$('.preview-menu a').css('color',$("#nav-foreground").val());
-			$("#contrast-dummy-button").css("background-color", $("#button-color").val());
+			$("#contrast-dummy-button-solid").css("background-color", $("#button-color").val());
+			$("#contrast-dummy-button-outline").css("border-color", $("#button-color").val()).css("color", $("#button-color").val());
 			$("#contrast-dummy-link").css("color", $("#button-color").val());
 			
 			calcContrast(color);

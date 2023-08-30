@@ -69,13 +69,16 @@ background-color: white;
     padding:20px 0;
     overflow:auto;
 }
-.picker-label, .contrast-checker{
+.picker-label, .contrast-checker, .blue-checker{
     display:block;
     width:300px;
     float:left;
     font-weight:600;
     font-size:14px;
     line-height:1.5em;
+}
+.blue-checker p{
+    font-weight:400;
 }
 .color-contrast{
     font-size:18px;
@@ -109,7 +112,7 @@ input[type='submit']:hover{
     background:rgb(0, 122, 31);
 }
 
-#contrast-dummy-button{
+#contrast-dummy-button-solid{
     box-shadow:0 4px 0 #1c1d1e0d;
     border:1px solid transparent;
     color:#fff;
@@ -122,4 +125,20 @@ input[type='submit']:hover{
     justify-content:center;
     min-height:40px;
     padding:15px 30px;
+    margin:15px 0;
+}
+#contrast-dummy-button-outline{
+    background:#fff;
+    box-shadow:0 4px 0 #1c1d1e0d;
+    border:1px solid transparent;
+    font-size:14px;
+    font-weight:600;
+    align-items:center;
+    box-sizing:border-box;
+    display:inline-flex;
+    flex-flow: row nowrap;
+    justify-content:center;
+    min-height:40px;
+    padding:15px 30px;
+    margin:15px 0;
 }
