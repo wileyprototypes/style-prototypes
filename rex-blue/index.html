@@ -25,6 +25,8 @@
 		<button id="contrast-dummy-button-outline">Secondary Button</button>
 		<br/>
 		<p>Here is an example of an <a href="#" id="contrast-dummy-link">inline text link</a> shown inside of paragraph text.</p>
+		<br/>
+		<div id="contrast-dummy-pill">Here is an example of a pill</div>
 	</span>
 	<span class="contrast-checker">
 		WCAG Color Contrast: <br />
@@ -74,15 +76,23 @@
 		});
 	   
 		function updateColors(color){
+			console.log(color);
 			//$('.preview-wrap').css('background-color',$("#primary-background").val());
 			//$('.preview-menu').css('background-color',$("#nav-background").val());
 			//$('.preview-menu a').css('color',$("#nav-foreground").val());
 			$("#contrast-dummy-button-solid").css("background-color", $("#button-color").val());
 			$("#contrast-dummy-button-outline").css("border-color", $("#button-color").val()).css("color", $("#button-color").val());
 			$("#contrast-dummy-link").css("color", $("#button-color").val());
+			$("#contrast-dummy-pill").css("background-color",calcPillColor(color));
 			
 			calcContrast(color);
 			calcIfBlue(color);
+		}
+		function calcPillColor(color){
+			hsl = $("#button-color").spectrum("get").toHsl();
+			pillColor = "hsl(" + hsl.h + ",70%, 90%)";
+			console.log(pillColor);
+			return pillColor;
 		}
 	  
 		function calcContrast(color){

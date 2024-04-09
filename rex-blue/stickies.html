@@ -21,6 +21,9 @@
 	<span class="contrast-checker">
 		Preview: <br />
 		<button id="contrast-dummy-button">Continue </button>
+		<br/>
+		<br/>
+		<a href="#" id="contrast-dummy-link">Text link</a>
 	</span>
 	<span class="contrast-checker">
 		WCAG Color Contrast: <br />
@@ -74,6 +77,8 @@
 			//$('.preview-menu').css('background-color',$("#nav-background").val());
 			//$('.preview-menu a').css('color',$("#nav-foreground").val());
 			$("#contrast-dummy-button").css("background-color", $("#button-color").val());
+			$("#contrast-dummy-link").css("color", $("#button-color").val());
+			
 			calcContrast(color);
 			calcIfBlue(color);
 		}

@@ -142,3 +142,7 @@ input[type='submit']:hover{
     padding:15px 30px;
     margin:15px 0;
 }
+#contrast-dummy-pill{
+    padding:15px;
+    color:#1c1d1e;
+}
